@@ -1,13 +1,12 @@
 <template>
   <header class="header">
-    <h1 class="title"><a href="/">Blog - tenjo takashi</a></h1>
+    <h1 class="title"><a href="/">Blog / tenjo</a></h1>
   </header>
 </template>
 
 <style scoped>
 .header {
-  border-bottom: 2px solid var(--border-decorative-100);
-  padding: 16px 0;
+  padding: 8px 16px;
 }
 
 .title {

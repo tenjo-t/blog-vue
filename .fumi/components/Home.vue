@@ -17,17 +17,17 @@ import { data as articles } from "../articles.data.ts";
     <ul class="link-list">
       <li class="link-list-item">
         <a class="link" href="https://github.com/tenjo-t">
-          <img src="../../../assets/github.svg" alt="GitHub" />
+          <img src="../../assets/github.svg" alt="GitHub" />
         </a>
       </li>
       <li class="link-list-item">
         <a class="link" href="https://zenn.dev/tenjo">
-          <img src="../../../assets/zenn.svg" alt="Zenn" />
+          <img src="../../assets/zenn.svg" alt="Zenn" />
         </a>
       </li>
       <li class="link-list-item">
         <a class="link" href="">
-          <img src="../../../assets/x.svg" alt="X (Twitter)" />
+          <img src="../../assets/x.svg" alt="X (Twitter)" />
         </a>
       </li>
     </ul>

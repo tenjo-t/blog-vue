@@ -1,13 +1,15 @@
-<script setup>
+<script lang="ts" setup>
+import { useData } from "@tenjot/fumi/client";
 import Header from "./components/Header.vue";
-import NotFound from "./components/NotFound.vue";
+import Footer from "./components/Footer.vue";
 import Home from "./components/Home.vue";
 import Page from "./components/Page.vue";
-import Footer from "./components/Footer.vue";
+import "@acab/reset.css";
+import "./styles/base.css";
+import "./styles/color.css";
+import "./styles/typography.css";
 
-import { useData } from "vitepress";
-
-const { page, frontmatter } = useData();
+const { page } = useData();
 </script>
 
 <template>
@@ -16,16 +18,15 @@ const { page, frontmatter } = useData();
 
     <div class="content">
       <template v-if="page.isNotFound">
-        <NotFound />
+        <p>404 | Not found</p>
       </template>
-      <template v-else-if="frontmatter.layout === 'home'">
+      <template v-else-if="page.frontmatter?.layout === 'home'">
         <Home />
       </template>
       <template v-else>
         <Page />
       </template>
     </div>
-
     <Footer />
   </div>
 </template>
@@ -34,10 +35,5 @@ const { page, frontmatter } = useData();
 .container {
   margin: 0 auto;
   max-width: 700px;
-  padding: 16px;
-}
-
-.content {
-  padding: 16px 0;
 }
 </style>
