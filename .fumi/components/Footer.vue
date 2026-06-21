@@ -1,11 +1,3 @@
 <template>
-  <footer class="footer">© tenjo takashi</footer>
+  <footer class="mx-auto p-4 max-w-xl text-mist-400 text-sm text-center">© tenjo takashi</footer>
 </template>
-
-<style scoped>
-.footer {
-  border-top: 2px solid var(--border-decorative-100);
-  padding: 16px 0;
-  text-align: center;
-}
-</style>

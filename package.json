@@ -1,25 +1,28 @@
 {
   "name": "blog-vue",
   "version": "0.1.0",
-  "description": "",
-  "license": "MIT",
+  "private": true,
   "author": "tenjo-t",
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build --app",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "post:new": "node .fumi/scripts/post-new.ts"
   },
   "dependencies": {
-    "@acab/reset.css": "^0.11.0",
     "vue": "^3.5.38"
   },
   "devDependencies": {
-    "@tenjot/fumi": "^0.1.2-alpha.0",
+    "@tailwindcss/vite": "^4.3.1",
+    "@tenjot/fumi": "^0.1.2-alpha.3",
     "@tenjot/remark-shiki-highlight": "^0.1.0",
+    "@types/cross-spawn": "^6.0.6",
+    "cross-spawn": "^7.0.6",
     "oxfmt": "^0.55.0",
     "remark-gfm": "^4.0.1",
-    "typescript": "^6.0.3"
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
   }
 }
