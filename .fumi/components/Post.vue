@@ -8,8 +8,9 @@ interface Frontmatter {
   title: string;
 }
 
+const { posts } = data;
 const { page } = useData();
-const post = computed(() => data.findIndex((a) => a.url === page.value.path));
+const post = computed(() => posts.findIndex((p) => p.path === page.value.path));
 const frontmatter = computed(() => page.value.frontmatter as unknown as Frontmatter);
 </script>
 
@@ -19,32 +20,41 @@ const frontmatter = computed(() => page.value.frontmatter as unknown as Frontmat
     <article class="mb-16">
       <h1 class="mb-16 text-xl text-mist-100">{{ frontmatter.title }}</h1>
       <div class="mb-8 text-sm text-mist-400">
-        <template v-if="data[post].createdAt === data[post].updatedAt">
-          {{ new Date(data[post].createdAt).toLocaleDateString("ja-jp") }}に公開
+        <template v-if="posts[post].createdAt === posts[post].updatedAt">
+          {{ new Date(posts[post].createdAt).toLocaleDateString("ja-jp") }}に公開
         </template>
         <template v-else>
-          {{ new Date(data[post].updatedAt).toLocaleDateString("ja-jp") }}に更新
+          {{ new Date(posts[post].updatedAt).toLocaleDateString("ja-jp") }}に更新
         </template>
       </div>
       <Content />
+      <template v-if="posts[post].tag">
+        <div class="mt-8">
+          <span
+            class="inline-block px-2 py-1 border border-mist-700 rounded-md text-mist-200 leading-none"
+          >
+            {{ posts[post].tag }}
+          </span>
+        </div>
+      </template>
     </article>
     <aside>
       <nav class="grid grid-cols-2 border border-mist-700 rounded-lg overflow-hidden">
-        <template v-if="post !== data.length - 1">
+        <template v-if="post !== posts.length - 1">
           <a
-            :href="data[post + 1].url"
+            :href="posts[post + 1].path"
             class="flex gap-2 p-4 hover:bg-mist-900 focus:bg-mist-900 active:bg-mist-950 first:border-r border-mist-700 truncate transition-colors"
           >
             <span class="text-mist-400 select-none"><</span>
-            <span class="truncate">{{ data[post + 1].title }}</span>
+            <span class="truncate">{{ posts[post + 1].title }}</span>
           </a>
         </template>
         <template v-if="post !== 0">
           <a
-            :href="data[post - 1].url"
+            :href="posts[post - 1].path"
             class="col-start-2 flex gap-2 justify-end p-4 hover:bg-mist-900 focus:bg-mist-900 active:bg-mist-950 first:border-l border-mist-700 transition-colors"
           >
-            <span class="truncate">{{ data[post - 1].title }}</span>
+            <span class="truncate">{{ posts[post - 1].title }}</span>
             <span class="text-mist-400 select-none">></span>
           </a>
         </template>
@@ -54,7 +64,7 @@ const frontmatter = computed(() => page.value.frontmatter as unknown as Frontmat
 </template>
 
 <style>
-@reference "tailwindcss";
+@reference "../style.css";
 
 .fumi-markdown-content {
   p,

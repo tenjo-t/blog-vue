@@ -5,7 +5,7 @@ import HomeHeader from "./HomeHeader.vue";
 import github from "../assets/github.svg";
 import zenn from "../assets/zenn.svg";
 import x from "../assets/x.svg";
-import { data as posts } from "../posts.data";
+import { data } from "../posts.data";
 
 interface Frontmatter {
   layout: "home";
@@ -30,16 +30,29 @@ const frontmatter = computed(() => page.value.frontmatter as unknown as Frontmat
       <a :href="frontmatter.link" v-html="frontmatter.html"></a>
     </p>
     <ul class="mb-24">
-      <template v-for="post of posts" :key="post.url">
+      <template v-for="post of data.posts" :key="post.path">
         <li>
           <a
-            :href="post.url"
-            class="block hover:text-mist-400 focus:text-mist-400 active:text-mist-500 transition-colors"
+            :href="post.path"
+            class="group block hover:text-mist-400 focus:text-mist-400 active:text-mist-500 transition-colors"
           >
             <article class="flex justify-between gap-4 py-2">
-              <div class="truncate">{{ post.title }}</div>
-              <div class="text-mist-400 text-right">
-                {{ new Date(post.createdAt).toLocaleDateString("ja-jp") }}
+              <div class="truncate">
+                {{ post.title }}
+                <template v-if="post.tag">
+                  <span
+                    class="tag inline-block ml-4 px-1 py-0.5 border rounded text-sm leading-none transition-colors"
+                    :data-tag="data.tags.indexOf(post.tag)"
+                  >
+                    {{ post.tag }}
+                  </span>
+                </template>
+              </div>
+
+              <div class="text-right">
+                <span class="text-mist-400 hover:text-mist-500">
+                  {{ new Date(post.createdAt).toLocaleDateString("ja-jp") }}
+                </span>
               </div>
             </article>
           </a>
@@ -61,3 +74,19 @@ const frontmatter = computed(() => page.value.frontmatter as unknown as Frontmat
     </ul>
   </main>
 </template>
+
+<style scoped>
+@reference "../style.css";
+
+.tag[data-tag="0"] {
+  @apply border-lime-400 text-lime-400 group-hover:border-lime-600 group-hover:text-lime-600 group-focus:border-lime-600 group-focus:text-lime-600 group-active:border-lime-700 group-active:text-lime-700;
+}
+
+.tag[data-tag="1"] {
+  @apply border-rose-400 text-rose-400 group-hover:border-rose-600 group-hover:text-rose-600 group-focus:border-rose-600 group-focus:text-rose-600 group-active:border-rose-700 group-active:text-rose-700;
+}
+
+.tag[data-tag="2"] {
+  @apply border-amber-400 text-amber-400 group-hover:border-amber-600 group-hover:text-amber-600 group-focus:border-amber-600 group-focus:text-amber-600 group-active:border-amber-700 group-active:text-amber-700;
+}
+</style>
