@@ -7,6 +7,12 @@ export default defineConfig({
   title: "Blog",
   titleTemplate: ":title / tenjo",
 
+  rewrites(path) {
+    if (path.startsWith("/posts/")) {
+      return "/posts"+ path.slice(15)
+    }
+  },
+
   markdown: {
     remarkPlugins: [remarkGfm, [remarkTreeSitterHighlight, { theme: "github-dark" }]],
   },
