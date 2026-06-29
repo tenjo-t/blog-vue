@@ -16,8 +16,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1(vite@8.1.0(@types/node@25.9.4)(jiti@2.7.0))
       '@tenjot/fumi':
-        specifier: ^0.1.2-alpha.5
-        version: 0.1.2-alpha.5(jiti@2.7.0)(typescript@6.0.3)
+        specifier: ^0.1.2-alpha.6
+        version: 0.1.2-alpha.6(jiti@2.7.0)(typescript@6.0.3)
       '@tenjot/remark-shiki-highlight':
         specifier: ^0.1.0
         version: 0.1.0
@@ -441,8 +441,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tenjot/fumi@0.1.2-alpha.5':
-    resolution: {integrity: sha512-SnlxzpQcXc20aZcvc9iFnNdtoey8ibeBRCzZtK1bVsqXaHzyk6NHUyOUbRfluDoqdcai/RPkqUdBkWfUSicpzA==}
+  '@tenjot/fumi@0.1.2-alpha.6':
+    resolution: {integrity: sha512-MFf8vwAUiMY7q00sa1BvLCGhxBau0JBBgQ/q87JhYi7dE1qfg1ej7Mwrfl4IIdsBUl5qV/Vb/D/oUK6Ik2Jmfw==}
 
   '@tenjot/remark-shiki-highlight@0.1.0':
     resolution: {integrity: sha512-AzoepUqAjHXTQV2CMfvhmAFNqDUKLJwol5+Tz9xUfj/r29IHm9ud1z308hl7dqBCbh7YRQBRxIkXlM0D3GUqwg==}
@@ -1381,7 +1381,7 @@ snapshots:
       tailwindcss: 4.3.1
       vite: 8.1.0(@types/node@25.9.4)(jiti@2.7.0)
 
-  '@tenjot/fumi@0.1.2-alpha.5(jiti@2.7.0)(typescript@6.0.3)':
+  '@tenjot/fumi@0.1.2-alpha.6(jiti@2.7.0)(typescript@6.0.3)':
     dependencies:
       '@types/node': 25.9.4
       '@vitejs/plugin-vue': 6.0.7(vite@8.1.0(@types/node@25.9.4)(jiti@2.7.0))(vue@3.5.39(typescript@6.0.3))
