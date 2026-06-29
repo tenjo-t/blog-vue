@@ -9,7 +9,7 @@ export default defineConfig({
 
   rewrites(path) {
     if (path.startsWith("/posts/")) {
-      return "/posts"+ path.slice(15)
+      return "/posts" + path.slice(15);
     }
   },
 
